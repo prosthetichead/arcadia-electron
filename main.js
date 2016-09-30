@@ -15,13 +15,13 @@ function createWindow () {
   win = new BrowserWindow({
       width: 800,
       height: 600,
-      frame: false,
-      fullscreen: true,
+      frame: true,
+      fullscreen: false,
     })
   win.loadURL(`file://${__dirname}/index.html`)
 
   // Open the DevTools.
-  win.webContents.openDevTools()
+  //win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on('closed', () => {

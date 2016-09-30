@@ -1,5 +1,7 @@
-const execFile = require('child_process').execFile;
+'use strict';
 
-exports.launchCP = (file, args, options, callback) => {
+var execFile = require('child_process').execFile;
+
+exports.launchCP = function (file, args, options, callback) {
     execFile(file, args, options, callback);
 };
