@@ -8,7 +8,7 @@ module.exports = {
             displayName: 'Nintendo Entertainment System',
             enabled: true,
             
-            emulatorPath: 'd',
+            emulatorPath: '/Applications/RetroArch.app/Contents/MacOS/RetroArch',
             
             romsDir: '/Users/ash/roms/nes/roms/', //
             romsExtentions: ['.zip', '.ZIP', '.nes', '.NES'],

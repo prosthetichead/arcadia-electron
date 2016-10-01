@@ -7,18 +7,12 @@ export default class GameList extends React.Component {
             selectedIndex: 0
         }
     }
-    componentDidMount(){
-        document.addEventListener("keydown", (e)=> { this.moveList(e) });
-    }
 
-    moveList(event){
-        let currentIndex = this.state.selectedIndex;
-        this.setState({selectedIndex: currentIndex + 1});
-    }
+
 
     render() {
         let games = this.props.gamesList;
-        let currentIndex = this.state.selectedIndex;
+        let currentIndex = this.props.selectedIndex;
         
         if(games.length === 0){
             return (
