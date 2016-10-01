@@ -1,6 +1,7 @@
 # my compiled app directories
 app
 
+
 # Logs
 logs
 *.log

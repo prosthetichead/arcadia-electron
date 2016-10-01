@@ -1,20 +1,24 @@
 import React from "react";
 import ReactDom from 'react-dom';
-import Greeting from "./components/Greeting";
+import GameList from "./components/GameList";
 import Launcher from "./Launcher";
 import RomDB from "./RomDB";
 
 class App extends React.Component {
     constructor(){
         super();
+        RomDB.rescanRomsDir();
+        RomDB.getRomsByPlatformName('nes', (err, docs)=>{
+            this.setState({gamesList : docs});
+        });
         this.state = {
-            gameList: []
+            gamesList: []
         };
     }
 
     render() {
         return (
-                    <Greeting name='Kate' />
+                    <GameList gamesList={this.state.gamesList} />
                 
         );
     }

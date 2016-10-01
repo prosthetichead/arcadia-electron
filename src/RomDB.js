@@ -10,6 +10,12 @@ romDB.ensureIndex({ fieldName: 'platformName', unique: false });
 
 module.exports = {
 
+    //getRomsByPlatformName
+    //callback  function (err, docs)
+    getRomsByPlatformName: function(platformName, callback){
+        romDB.find({ platformName: platformName }, callback);
+    },
+
     //addRom
     //inserts a rom into the db. If rom already exists nothing happens
     addRom: function(rom){
