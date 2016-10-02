@@ -1,6 +1,6 @@
 # my compiled app directories
 app
-
+dist
 
 # Logs
 logs
