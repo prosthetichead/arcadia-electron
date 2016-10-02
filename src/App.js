@@ -4,6 +4,8 @@ import GameList from "./components/GameList";
 import Launcher from "./Launcher";
 import RomDB from "./RomDB";
 
+import config from "../config";
+
 const launcher = new Launcher();
 
 class App extends React.Component {
@@ -33,7 +35,11 @@ class App extends React.Component {
     }
 
     launchGame(){
-        launcher.spawnProcess("/Applications/RetroArch.app/Contents/MacOS/RetroArch", [], (exitCode)=>{
+
+        let romFullPath = this.state.gamesList[this.state.gameSelectedIndex].romFullPath;
+        let emulatorPath = "/applications/retroarch.app/Contents/MacOS/RetroArch";
+        let core = "/applications/retroarch.app/Contents/Resources/cores/nestopia_libretro.dylib";
+        launcher.spawnProcess(emulatorPath, ['-L', core, romFullPath], (exitCode)=>{
             console.log("Exit with Code " + exitCode);
         });
     }
@@ -41,7 +47,7 @@ class App extends React.Component {
     render() {
         return (    
             <div>
-                <button onClick={this.launchGame}/>
+                <button onClick={()=>{ this.launchGame() } }/>
                 <GameList gamesList={this.state.gamesList} selectedIndex={this.state.gameSelectedIndex} />
             </div>
         );

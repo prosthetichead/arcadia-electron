@@ -14,7 +14,7 @@ module.exports = {
             romsExtentions: ['.zip', '.ZIP', '.nes', '.NES'],
             romDirScan: true, //scan the romsdir for new roms?
 
-            launchArguments: [], 
+            launchArguments: ['-L', '/Applications/RetroArch.app/Contents/Resources/cores/fceumm_libretro.dylib'], 
             launchScript: '%emulatorPath% %romfullpath%', //%romName% %romFullPath%
         },
     ],
