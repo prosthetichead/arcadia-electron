@@ -5,6 +5,12 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+
+    "clean": "rm -rf ./dist",
+    "clean:osx": "rm -rf ./dist/osx",
+    "clean:win": "rm -rf ./dist/win",
+    "pack:win": "npm run clean:win && electron-packager . --out=dist/win --platform=win32 --arch=ia32 --icon=assets/win/logo.ico --ignore=dist --ignore=assets --ignore=README.md --ignore=.gitignore --ignore=src --ignore=Gruntfile.js",
+    
     "build": "grunt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

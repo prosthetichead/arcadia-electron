@@ -18,8 +18,10 @@ class App extends React.Component {
             this.setState({gamesList : docs});
         });
         this.state = {
+            platformsList: config.platforms,
             gamesList: [],
             gameSelectedIndex: 0,
+            platformSelectedIndex: 0,
         };
     }
     
@@ -35,11 +37,10 @@ class App extends React.Component {
     }
 
     launchGame(){
-
-        let romFullPath = this.state.gamesList[this.state.gameSelectedIndex].romFullPath;
-        let emulatorPath = "/applications/retroarch.app/Contents/MacOS/RetroArch";
-        let core = "/applications/retroarch.app/Contents/Resources/cores/nestopia_libretro.dylib";
-        launcher.spawnProcess(emulatorPath, ['-L', core, romFullPath], (exitCode)=>{
+        let platform = this.state.platformsList[this.state.platformSelectedIndex];
+        let game = this.state.gamesList[this.state.gameSelectedIndex];
+        
+        launcher.startEmulator(platform, game, (exitCode)=>{
             console.log("Exit with Code " + exitCode);
         });
     }
